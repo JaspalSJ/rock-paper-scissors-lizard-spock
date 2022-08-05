@@ -1,84 +1,94 @@
-var computerChoice = Math.random();
-if (computerChoice < 0.2) {
-    computerChoice = "rock";
-} else if (computerChoice <= 0.4) {
-    computerChoice = "paper";
-} else if (computerChoice <= 0.6) {
-    computerChoice = "scissors";
-} else if (computerChoice <= 0.8) {
-    computerChoice = "lizard";
-} else {
-    computerChoice = "spock";
+/**
+ * Create game variables
+ */
+let userscore = 0;
+let computerscore = 0;
+const userscoreS = document.getElementById("score");
+const computerscoreS = document.getElementById("incorrect");
+
+const rockD = document.getElementById("rock");
+const paperD = document.getElementById("paper");
+const scissorsD = document.getElementById("scissors");
+const lizardD = document.getElementById("lizard");
+const spockD = document.getElementById("spock");
+
+/**
+ * Random choice generator for computer player
+ */
+const getCompChoice = () => {
+    let choices = ["rock", "paper", "scissors", "lizard", "spock"];
+    let randNum = Math.floor(Math.random() * 5);
+    return choices[randNum];
 }
 
-var compare = function(choice1, choice2){
-    if (choice1 === choice2) {
-        alert("And... It's a tie!");
+var compare = function(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return("Draw");
     }
+}
 
-//If the user chose rock...
-else if (choice1 === "rock") {
-    if (choice2 === "scissors") {
+//If the player chose rock...
+if (playerChoice === "rock") {
+    if (computerChoice === "scissors") {
         alert("Rock wins!");
-    } else if (choice2 === "paper") {
+    } else if (computerChoice === "paper") {
         alert("Paper wins!");
-    } else if (choice2 === "lizard") {
+    } else if (computerChoice === "lizard") {
         alert("Rock wins!");
     } else {
         alert("Spock wins!");
     }
 }
 
-//If the user chose paper...
-else if (choice1 === "paper") {
-    if (choice2 === "scissors") {
+//If the player chose paper...
+else if (playerChoice === "paper") {
+    if (computerChoice === "scissors") {
         alert("Scissors wins!");
-    } else if (choice2 === "rock") {
+    } else if (computerChoice === "rock") {
         alert("Paper wins!");
-    } else if (choice2 === "lizard") {
+    } else if (computerChoice === "lizard") {
         alert("Lizard wins!");
     } else {
         alert("Paper wins!");
     }
 }
 
-//If the user chose scissors...
-else if (choice1 === "scissors") {
-    if (choice2 === "paper") {
+//If the player chose scissors...
+else if (playerChoice === "scissors") {
+    if (computerChoice === "paper") {
         alert("Scissors wins!");
-    } else if (choice2 === "rock") {
+    } else if (computerChoice === "rock") {
         alert("Rock wins!");
-    } else if (choice2 === "lizard") {
+    } else if (computerChoice === "lizard") {
         alert("Scissors wins!");
     } else {
         alert("Spock wins!");
     }
 }
 
-//If the user chose lizard...
-else if (choice1 === "lizard") {
-    if (choice2 === "scissors") {
+//If the player chose lizard...
+else if (playerChoice === "lizard") {
+    if (computerChoice === "scissors") {
         alert("Scissors wins!");
-    } else if (choice2 === "rock") {
+    } else if (computerChoice === "rock") {
         alert("Rock wins!");
-    } else if (choice2 === "paper") {
+    } else if (computerChoice === "paper") {
         alert("Lizard wins!");
     } else {
         alert("Lizard wins!");
     }
 }
 
-//If the user chose spock...
-else if (choice1 === "spock") {
-    if (choice2 === "scissors") {
+//If the player chose spock...
+else if (playerChoice === "spock") {
+    if (computerChoice === "scissors") {
         alert("Spock wins!");
-    } else if (choice2 === "rock") {
+    } else if (computerChoice === "rock") {
         alert("Spock wins!");
-    } else if (choice2 === "lizard") {
+    } else if (computerChoice === "lizard") {
         alert("Lizard wins!");
     } else {
         alert("Paper wins!");
     }
 }
-};
-compare(userChoice, computerChoice);
+compare(playerChoice, computerChoice);
