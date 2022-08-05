@@ -1,60 +1,84 @@
-const playerText = document.querySelector("#playerText");
-const computerText = document.querySelector("#computerText");
-const resultText = document.querySelector("#resultText");
-const choicBtns = document.querySelectorAll(".choiceBtn");
-let player;
-let computer;
-let result;
+var computerChoice = Math.random();
+if (computerChoice < 0.2) {
+    computerChoice = "rock";
+} else if (computerChoice <= 0.4) {
+    computerChoice = "paper";
+} else if (computerChoice <= 0.6) {
+    computerChoice = "scissors";
+} else if (computerChoice <= 0.8) {
+    computerChoice = "lizard";
+} else {
+    computerChoice = "spock";
+}
 
-choiceBtns.forEach(button => button.addEventListener("click", () => {
+var compare = function(choice1, choice2){
+    if (choice1 === choice2) {
+        alert("And... It's a tie!");
+    }
 
-    player = button.textContent;
-    computerTurn();
-    playerText.textContent = `Player: ${player}`;
-    computerText.textContent = `Computer: ${computer}`;
-    resultText.textContent = checkWinner();
-}))
-
-function computerTurn(){
-
-    const randNum = Math.floor(Math.random() * 5) +1;
-
-    switch(randNum){
-        case 1:
-            computer = "ROCK";
-            break;
-        case 2:
-            computer = "PAPER";
-            break;
-        case 3:
-            computer = "SCISSORS";
-            break;
-        case 4:
-            computer = "LIZARD";
-            break;
-        case 5:
-            computer = "SPOCK";
-             break;
+//If the user chose rock...
+else if (choice1 === "rock") {
+    if (choice2 === "scissors") {
+        alert("Rock wins!");
+    } else if (choice2 === "paper") {
+        alert("Paper wins!");
+    } else if (choice2 === "lizard") {
+        alert("Rock wins!");
+    } else {
+        alert("Spock wins!");
     }
 }
 
-function checkWinner(){
-    if(player == computer){
-        return "Draw!";
-    }
-    else if(computer == "ROCK"){
-        return (player == "PAPER") ? "You Win!" : "You Lose!"
-    }
-    else if(computer == "PAPER"){
-        return (player == "SCISSORS") ? "You Win!" : "You Lose!"
-    }
-    else if(computer == "SCISSORS"){
-        return (player == "ROCK") ? "You Win!" : "You Lose!"
-    }
-    else if(computer == "ROCK"){
-        return (player == "LIZARD") ? "You Win!" : "You Lose!"
-    }
-    else if(computer == ""){
-        return (player == "SPOCK") ? "You Win!" : "You Lose!"
+//If the user chose paper...
+else if (choice1 === "paper") {
+    if (choice2 === "scissors") {
+        alert("Scissors wins!");
+    } else if (choice2 === "rock") {
+        alert("Paper wins!");
+    } else if (choice2 === "lizard") {
+        alert("Lizard wins!");
+    } else {
+        alert("Paper wins!");
     }
 }
+
+//If the user chose scissors...
+else if (choice1 === "scissors") {
+    if (choice2 === "paper") {
+        alert("Scissors wins!");
+    } else if (choice2 === "rock") {
+        alert("Rock wins!");
+    } else if (choice2 === "lizard") {
+        alert("Scissors wins!");
+    } else {
+        alert("Spock wins!");
+    }
+}
+
+//If the user chose lizard...
+else if (choice1 === "lizard") {
+    if (choice2 === "scissors") {
+        alert("Scissors wins!");
+    } else if (choice2 === "rock") {
+        alert("Rock wins!");
+    } else if (choice2 === "paper") {
+        alert("Lizard wins!");
+    } else {
+        alert("Lizard wins!");
+    }
+}
+
+//If the user chose spock...
+else if (choice1 === "spock") {
+    if (choice2 === "scissors") {
+        alert("Spock wins!");
+    } else if (choice2 === "rock") {
+        alert("Spock wins!");
+    } else if (choice2 === "lizard") {
+        alert("Lizard wins!");
+    } else {
+        alert("Paper wins!");
+    }
+}
+};
+compare(userChoice, computerChoice);
